@@ -26,6 +26,8 @@ def importData(data_type, num):
 					data[i,y*img_col+x] = ord(fp.read(1))
 
 
+		fp.close()
+
 
 		fp = open("./train-labels-idx1-ubyte","rb")
 
@@ -36,6 +38,7 @@ def importData(data_type, num):
 			label[i] = ord(fp.read(1))
 
 
+		fp.close()
 
 
 		return (data/255, label, 10)
@@ -110,7 +113,7 @@ def searchThreshold(data, label, cl, dn, branches, code):
 
 def main():
 
-	dn = 100
+	dn = 200
 
 	(data, label, cl) = importData("mnist", dn)
 
